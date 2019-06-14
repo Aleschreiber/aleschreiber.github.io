@@ -26,4 +26,49 @@ Of course point 2 is down to me. Now that I'm more inclined to write, selecting 
 
 -----
 
+## Install with RubyGems
 
+So let's take a look at Jekyll in a little more detail. I've lifted some of this information directly from [Jekyll's Quick Start guide](https://jekyllrb.com/docs/quickstart/) — which of course you should browse through too.
+
+The best way to install Jekyll is via RubyGems. Over the last five years or so I've used a Mac, but right now I'm working with a windows laptop (you know, translation software an Mac simply don't mix). Using Jekyll on Windows is not officially supported by the Jekyll team, so Windows users should follow this [step-by-step guide](http://jekyll-windows.juthilo.com/). Luckily for me [@madhur](https://github.com/madhur) has created [Portable Jekyll](https://github.com/madhur/PortableJekyll) containing everything which is required to run Jekyll v3.2.1 on Windows. Just download it and after running the `setpath.cmd` in command line, the setting is ok.
+
+## Create a new project
+
+Once installed, getting a Jekyll project up and running only requires three more commands:
+
+	$ jekyll new yourusername.github.io
+	$ cd yourusername.github.io
+	$ jekyll serve --watch 
+ 
+Once the server is running, browse to *http://localhost:4000*  and you'll see the content of your project's `_site` folder served as static HTML.
+Before we carry on, it's worth noting the [configuration options](https://jekyllrb.com/docs/configuration/) available to you, and which ones to pay attention to from the beginning.
+Jekyll allows you to mould your site in any way you want, and it’s thanks to the powerful and flexible configuration options that this is possible. Typically, these options are specified in a `_config.yml` file placed in your site's root directory.
+
+You'll see settings in here for title, decsription etc. You can refence any of these settings in your templates using syntax like {{site.author}}. This is good if you want to repeat values throughout your site, like this site does in the {{site.description}} part of the template.
+
+It's important to note that Jekyll will sometimes do some fairly assumptive things, like copying everything in the root directory to the `_site` folder. There's a good reason for this, and in many cases this is a good thing (e.g. the way I've organised assets into their own folder) but other times you want to exclude specific files or folders from that process. Use the exclude property to define an array of paths that should be omitted.
+
+## Directory Structure
+
+To explain the directroy structure in a little more details (seeing as I've just touched upon it), my project is broken down into 5 folders:
+
+- _includes 
+- _layouts
+- _posts
+- public
+
+## Content
+
+So that's the structure explained, but what about just *normal* web pages. Where do they go?
+
+For the most part, much of my site's content sits in the root. As an example, there is a markdown file in there called `about.md`. Ultimatly, Jekyll will convert this into a HTML file and copy it to the root of the `_site folder`, giving me a [about page](https://aleschreiber.github.io/about/).
+
+At the top of `about.md` is the following Front Matter:
+
+	---
+    layout: page
+    title: About
+    permalink: about-me
+    ---
+
+This tells Jekyll to use the "page" layout, to give it a title of "About" and to assign "/about-me/" as it's URL. There's a bunch of extra properties you can assign, but as this site shows, that's all you really need to get going.
