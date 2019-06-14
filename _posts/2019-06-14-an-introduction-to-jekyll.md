@@ -44,7 +44,7 @@ Once the server is running, browse to *http://localhost:4000*  and you'll see th
 Before we carry on, it's worth noting the [configuration options](https://jekyllrb.com/docs/configuration/) available to you, and which ones to pay attention to from the beginning.
 Jekyll allows you to mould your site in any way you want, and it’s thanks to the powerful and flexible configuration options that this is possible. Typically, these options are specified in a `_config.yml` file placed in your site's root directory.
 
-You'll see settings in here for title, decsription etc. You can refence any of these settings in your templates using syntax like {{site.author}}. This is good if you want to repeat values throughout your site, like this site does in the {{site.description}} part of the template.
+You'll see settings in here for title, decsription etc. You can refence any of these settings in your templates using syntax like `{{site.author}}`. This is good if you want to repeat values throughout your site, like this site does in the `{{site.description}}` part of the template.
 
 It's important to note that Jekyll will sometimes do some fairly assumptive things, like copying everything in the root directory to the `_site` folder. There's a good reason for this, and in many cases this is a good thing (e.g. the way I've organised assets into their own folder) but other times you want to exclude specific files or folders from that process. Use the exclude property to define an array of paths that should be omitted.
 
